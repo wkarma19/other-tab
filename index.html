@@ -236,6 +236,33 @@ footer{padding-bottom:max(132px,calc(105px + env(safe-area-inset-bottom, 0px)))}
 @media(max-width:390px){.fm-kicker{font-size:8px}.fm-title{font-size:16px}.fm-thumbnail{width:44px;height:44px}.fm-strip{gap:9px}.fm-toggle{width:42px;height:42px}}
 @media(prefers-reduced-motion:reduce){.fm-panel{animation:none}.fm-toggle{transition:none}}
 
+
+/* CRYSTAL EDITION — transparent prismatic resin / carved jewel, not flat frosted cards */
+.floating-music{width:min(403px,calc(100vw - 30px));filter:drop-shadow(0 16px 20px rgba(102,69,87,.18))}
+.fm-strip{min-height:100px;padding:16px 27px;gap:13px;overflow:visible;border:0;border-radius:50px;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.fm-strip:before,.fm-strip:after{display:none}
+.fm-crystal-shell{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none;filter:drop-shadow(0 5px 6px rgba(138,99,127,.1))}
+.fm-thumbnail{z-index:1;width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.75);background:radial-gradient(circle at 27% 23%,rgba(255,255,255,.91),rgba(255,255,255,.18) 39%,rgba(229,177,201,.22) 74%,rgba(255,255,255,.54));box-shadow:inset 0 2px 5px rgba(255,255,255,.85),inset -3px -5px 9px rgba(168,117,149,.17),0 3px 10px rgba(106,70,90,.13)}
+.fm-thumbnail:before{width:70%;height:38%}
+.fm-thumbnail img{width:87%;height:87%}
+.fm-song{gap:4px;z-index:2}
+.fm-title{font-size:20px;color:#492b35;letter-spacing:-.04em;text-shadow:0 1px rgba(255,255,255,.35)}
+.fm-kicker{color:#945979;font-size:9px;letter-spacing:.2em}
+.fm-artist{color:#73545e;font-size:11px}
+.fm-toggle{z-index:3;width:50px;height:50px;border:1px solid rgba(255,255,255,.83);border-radius:50%;background:radial-gradient(circle at 29% 18%,rgba(255,255,255,.98) 0%,rgba(255,249,252,.75) 23%,rgba(239,188,214,.36) 58%,rgba(213,154,190,.31) 85%,rgba(255,255,255,.9));box-shadow:inset 1px 2px 3px rgba(255,255,255,.98),inset -3px -5px 9px rgba(158,97,143,.24),0 7px 15px rgba(105,57,90,.2);color:#673c57}
+.fm-toggle:before{content:'';position:absolute;left:18%;top:12%;width:39%;height:21%;border-radius:50%;background:rgba(255,255,255,.95);filter:blur(3px);pointer-events:none}
+.fm-toggle:hover{background:radial-gradient(circle at 27% 17%,#fff 0%,rgba(246,214,233,.78) 36%,rgba(224,150,196,.45) 85%);box-shadow:inset 1px 2px 4px #fff,0 8px 19px rgba(113,66,97,.22)}
+.fm-panel{overflow:hidden;bottom:calc(100% + 2px);border:1px solid rgba(255,255,255,.83);border-radius:26px 26px 18px 18px;background:linear-gradient(126deg,rgba(255,255,255,.77) 0%,rgba(250,220,235,.74) 34%,rgba(236,205,228,.52) 54%,rgba(255,255,255,.68) 100%);box-shadow:0 25px 55px rgba(111,72,98,.22),inset 0 2px 3px rgba(255,255,255,.96),inset 4px 0 10px rgba(255,255,255,.32),inset -4px -4px 13px rgba(186,128,166,.18);-webkit-backdrop-filter:blur(30px) saturate(1.45);backdrop-filter:blur(30px) saturate(1.45)}
+.fm-panel:before{height:50%;background:linear-gradient(155deg,rgba(255,255,255,.7),transparent 58%)}
+.fm-panel:after{background:linear-gradient(126deg,transparent 16%,rgba(255,255,255,.53) 24%,transparent 33%,transparent 78%,rgba(255,255,255,.41) 89%,transparent 95%);opacity:.46}
+.fm-panel-head,.fm-player-embed,.fm-panel-foot{position:relative;z-index:1}
+.fm-panel-heading{color:#4b303d}
+.fm-panel-overline{color:#a06b8b}
+.fm-close{border:1px solid rgba(255,255,255,.8);background:radial-gradient(circle at 28% 20%,#fff,rgba(234,197,222,.6));box-shadow:inset 0 1px 3px white,0 2px 6px rgba(123,80,112,.1)}
+.fm-player-embed{background:rgba(251,237,246,.61);border:1px solid rgba(255,255,255,.67);box-shadow:inset 0 1px 3px #fff,0 5px 12px rgba(106,62,92,.09)}
+@media(max-width:750px){.floating-music{width:auto}.fm-strip{min-height:87px;padding:13px 23px;gap:11px;border-radius:48px}.fm-title{font-size:18px}.fm-thumbnail{width:46px;height:46px}.fm-toggle{width:46px;height:46px}.fm-panel{bottom:calc(100% + 4px)}}
+@media(max-width:390px){.fm-strip{padding:13px 21px;gap:9px}.fm-thumbnail{width:42px;height:42px}.fm-toggle{width:43px;height:43px}.fm-title{font-size:17px}}
+
 </style>
 <!-- Umami Cloud analytics: Replace the single placeholder ID with your Umami Website ID.
      This page contains no custom Discord account identification or fingerprinting code. -->
@@ -297,6 +324,7 @@ footer{padding-bottom:max(132px,calc(105px + env(safe-area-inset-bottom, 0px)))}
     </div>
   </div>
   <div class="fm-strip">
+    <img class="fm-crystal-shell" src="assets/crystal-capsule.webp" alt="" aria-hidden="true" draggable="false">
     <span class="fm-thumbnail" aria-hidden="true"><img src="assets/headphones.webp" alt=""></span>
     <div class="fm-song">
       <span class="fm-kicker">ON REPEAT / 001</span>
