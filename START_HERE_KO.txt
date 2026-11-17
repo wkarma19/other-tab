@@ -1,0 +1,9 @@
+OTHER TAB. — refined editorial version
+
+첫 화면 구성과 꽃잎 애니메이션 및 INFJ 내용은 유지했습니다.
+INFJ 영역의 왼쪽 아래 흐릿한 꽃 이미지는 제거했습니다.
+INFJ 장식 글자는 에디토리얼 타이포그래피로 정리했습니다.
+현재 관심사 섹션의 꽃 아치 이미지를 유리 오브제 장면으로 교체했습니다.
+
+GitHub Pages 업로드: ZIP 압축 해제 후 index.html과 assets 폴더를 저장소 최상단에 업로드하세요.
+Umami 이용 시 index.html에서 PASTE_YOUR_UMAMI_WEBSITE_ID를 발급된 ID로 교체하세요.
