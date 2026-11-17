@@ -196,23 +196,27 @@ footer{background:#f7e5df;border-top:1px solid #ebc8c5}
 @media(max-width:480px){.music-art{height:335px}.music-listen{padding:14px 16px;gap:24px}.music-track h3{font-size:30px}.music-watermark{font-size:19vw}}
 @media(prefers-reduced-motion:reduce){.music-headphone,.music-glass{animation:none!important}}
 
-/* Floating glass music — compact, persistent, and independent of page scroll. */
-.floating-music{position:fixed;right:clamp(18px,3.8vw,60px);bottom:clamp(18px,2.7vw,36px);width:min(372px,calc(100vw - 32px));z-index:1000;color:#3c2829;font-family:inherit;isolation:isolate}
-.fm-strip{position:relative;display:flex;align-items:center;gap:11px;min-height:78px;padding:11px 12px 11px 13px;overflow:hidden;border:1px solid rgba(255,255,255,.85);border-radius:22px;background:linear-gradient(117deg,rgba(255,249,246,.85),rgba(254,234,235,.75) 65%,rgba(255,252,249,.79));-webkit-backdrop-filter:blur(23px) saturate(1.45);backdrop-filter:blur(23px) saturate(1.45);box-shadow:0 14px 40px rgba(95,57,61,.14),inset 0 1px 2px rgba(255,255,255,.92);}
-.fm-strip:before{content:'';pointer-events:none;position:absolute;inset:1px 1px auto 1px;height:43%;border-radius:22px 22px 45% 45%;background:linear-gradient(180deg,rgba(255,255,255,.39),transparent)}
-.fm-thumbnail{width:54px;height:54px;border-radius:16px;flex-shrink:0;position:relative;display:grid;place-items:center;border:1px solid rgba(255,255,255,.7);background:radial-gradient(circle at 26% 20%,#fffaf8,#ead1d2 75%);box-shadow:0 5px 13px #975c6523,inset 0 1px 0 #fff;overflow:hidden}
-.fm-thumbnail img{width:90%;height:90%;object-fit:contain;filter:drop-shadow(3px 5px 4px #81585844)}
-.fm-song{position:relative;min-width:0;flex:1;display:flex;flex-direction:column;gap:3px}
-.fm-kicker{font-size:9px;letter-spacing:.18em;color:#a37682;font-weight:750;line-height:1.4}
+/* Floating glass music — hidden on the very top, then appears after scrolling. */
+.floating-music{position:fixed;right:clamp(18px,3.8vw,60px);bottom:clamp(18px,2.7vw,36px);width:min(386px,calc(100vw - 32px));z-index:1000;color:#3c2829;font-family:inherit;isolation:isolate;opacity:0;transform:translate3d(0,20px,0) scale(.985);pointer-events:none;transition:opacity .34s ease,transform .42s cubic-bezier(.2,.75,.2,1)}
+.floating-music.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1);pointer-events:auto}
+.fm-strip,.fm-panel{position:relative;overflow:hidden}
+.fm-strip{display:flex;align-items:center;gap:11px;min-height:80px;padding:12px 13px 12px 14px;border:1px solid rgba(255,255,255,.7);border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.24),rgba(255,240,244,.17) 48%,rgba(255,255,255,.12));-webkit-backdrop-filter:blur(32px) saturate(1.55);backdrop-filter:blur(32px) saturate(1.55);box-shadow:0 18px 45px rgba(102,67,74,.14),inset 0 1px 1px rgba(255,255,255,.78),inset 0 -18px 26px rgba(255,255,255,.06)}
+.fm-strip:before,.fm-panel:before{content:'';pointer-events:none;position:absolute;inset:1px 1px auto 1px;height:46%;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.08) 65%,transparent)}
+.fm-strip:after,.fm-panel:after{content:'';pointer-events:none;position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 10% 12%,rgba(255,255,255,.45),transparent 28%),radial-gradient(circle at 88% 85%,rgba(255,220,231,.18),transparent 22%)}
+.fm-thumbnail{width:56px;height:56px;border-radius:17px;flex-shrink:0;position:relative;display:grid;place-items:center;border:1px solid rgba(255,255,255,.62);background:linear-gradient(145deg,rgba(255,255,255,.45),rgba(247,218,227,.18));box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 8px 18px rgba(128,86,96,.14);overflow:hidden}
+.fm-thumbnail:before{content:'';position:absolute;inset:1px auto auto 2px;width:68%;height:32%;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.8),transparent);filter:blur(1px)}
+.fm-thumbnail img{width:90%;height:90%;object-fit:contain;filter:drop-shadow(3px 5px 4px rgba(129,88,88,.22))}
+.fm-song{position:relative;min-width:0;flex:1;display:flex;flex-direction:column;gap:3px;z-index:1}
+.fm-kicker{font-size:9px;letter-spacing:.18em;color:#9f7386;font-weight:750;line-height:1.4}
 .fm-title{font-family:Georgia,serif;font-size:18px;font-weight:600;line-height:1.15;letter-spacing:-.037em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fm-artist{font-size:11px;color:#806a65;letter-spacing:.01em}
-.fm-toggle{position:relative;border:1px solid rgba(117,66,77,.15);border-radius:50%;height:47px;width:47px;flex-shrink:0;display:grid;place-items:center;color:#fff6f5;background:#452c2d;box-shadow:0 6px 16px #5c333837;cursor:pointer;transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
-.fm-toggle:hover{background:#815362;transform:translateY(-2px);box-shadow:0 8px 18px #5c33383d}
+.fm-artist{font-size:11px;color:#7f6a69;letter-spacing:.01em}
+.fm-toggle{position:relative;border:1px solid rgba(255,255,255,.66);border-radius:50%;height:48px;width:48px;flex-shrink:0;display:grid;place-items:center;color:#5c3842;background:linear-gradient(145deg,rgba(255,255,255,.42),rgba(255,232,239,.18));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 10px 24px rgba(104,63,72,.16),inset 0 1px 1px rgba(255,255,255,.78);cursor:pointer;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;z-index:1}
+.fm-toggle:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(104,63,72,.2),inset 0 1px 1px rgba(255,255,255,.85);background:linear-gradient(145deg,rgba(255,255,255,.5),rgba(255,238,244,.24))}
 .fm-toggle svg{width:19px;height:19px;fill:currentColor;stroke:none;transform:translateX(1px)}
 .fm-toggle .fm-chevron{display:none;width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.9;transform:none}
 .floating-music.is-open .fm-toggle .fm-play{display:none}
 .floating-music.is-open .fm-toggle .fm-chevron{display:block}
-.fm-panel{position:absolute;right:0;bottom:calc(100% + 12px);width:100%;padding:19px 16px 15px;border:1px solid rgba(255,255,255,.92);border-radius:24px;background:linear-gradient(142deg,rgba(255,251,248,.96),rgba(247,228,227,.95));-webkit-backdrop-filter:blur(28px) saturate(1.4);backdrop-filter:blur(28px) saturate(1.4);box-shadow:0 22px 54px #7a54533d,inset 0 1px 0 #fff;animation:fmReveal .25s cubic-bezier(.2,.8,.2,1) both}
+.fm-panel{position:absolute;right:0;bottom:calc(100% + 14px);width:100%;padding:19px 16px 15px;border:1px solid rgba(255,255,255,.78);border-radius:26px;background:linear-gradient(142deg,rgba(255,255,255,.28),rgba(255,239,243,.18));-webkit-backdrop-filter:blur(34px) saturate(1.5);backdrop-filter:blur(34px) saturate(1.5);box-shadow:0 24px 55px rgba(122,84,83,.18),inset 0 1px 1px rgba(255,255,255,.82);animation:fmReveal .25s cubic-bezier(.2,.8,.2,1) both}
 .fm-panel[hidden]{display:none}
 @keyframes fmReveal{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
 .fm-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}
@@ -228,7 +232,7 @@ footer{background:#f7e5df;border-top:1px solid #ebc8c5}
 .fm-spotify-link:hover{color:#aa657b}
 .floating-music :is(button,a):focus-visible{outline:2px solid #a66383;outline-offset:3px}
 footer{padding-bottom:max(132px,calc(105px + env(safe-area-inset-bottom, 0px)))}
-@media(max-width:750px){.floating-music{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));width:auto}.fm-strip{min-height:70px;padding:9px 10px;gap:10px;border-radius:20px}.fm-thumbnail{height:49px;width:49px;border-radius:13px}.fm-title{font-size:17px}.fm-toggle{height:44px;width:44px}.fm-panel{padding:16px 12px 13px;border-radius:20px}.fm-panel-hint{font-size:9px}.fm-spotify-link{font-size:9px}footer{padding-bottom:132px}}
+@media(max-width:750px){.floating-music{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));width:auto}.fm-strip{min-height:72px;padding:9px 10px;gap:10px;border-radius:22px}.fm-thumbnail{height:49px;width:49px;border-radius:14px}.fm-title{font-size:17px}.fm-toggle{height:44px;width:44px}.fm-panel{padding:16px 12px 13px;border-radius:22px}.fm-panel-hint{font-size:9px}.fm-spotify-link{font-size:9px}footer{padding-bottom:132px}}
 @media(max-width:390px){.fm-kicker{font-size:8px}.fm-title{font-size:16px}.fm-thumbnail{width:44px;height:44px}.fm-strip{gap:9px}.fm-toggle{width:42px;height:42px}}
 @media(prefers-reduced-motion:reduce){.fm-panel{animation:none}.fm-toggle{transition:none}}
 
@@ -341,7 +345,16 @@ if(!reduce){let pending=false;addEventListener('scroll',()=>{if(pending)return;p
 // Fixed glass music panel. The official Spotify iframe is created only after user interaction.
 const fmRoot=$('#floatingMusic'),fmPanel=$('#fmPanel'),fmToggle=$('#fmToggle'),fmClose=$('#fmClose'),fmEmbed=$('#fmPlayerEmbed');
 const trackMusic=(name)=>{if(window.umami?.track)window.umami.track(name,{track:'eurythmics_sweet_dreams'})};
+let musicVisible=false;
+const musicThreshold=()=>Math.max(340,Math.round((innerHeight||800)*.55));
+function setMusicVisibility(force){
+  const shouldShow=force===true?true:(window.scrollY||window.pageYOffset||0)>=musicThreshold();
+  if(shouldShow===musicVisible)return;
+  musicVisible=shouldShow;
+  fmRoot.classList.toggle('is-visible',shouldShow);
+}
 function openMusic(){
+  setMusicVisibility(true);
   if(!fmEmbed.firstChild){
     const frame=document.createElement('iframe');
     frame.src='https://open.spotify.com/embed/track/6zIfdCmmhPCX0cMquBsC37?utm_source=generator';
@@ -362,6 +375,9 @@ function closeMusic(){
   fmEmbed.replaceChildren(); // Closing actually stops iframe playback: no ghost audio.
   trackMusic('music_player_close');
 }
+setMusicVisibility(false);
+window.addEventListener('scroll',()=>setMusicVisibility(false),{passive:true});
+window.addEventListener('resize',()=>setMusicVisibility(false));
 fmToggle.addEventListener('click',()=>fmPanel.hidden?openMusic():closeMusic());
 fmClose.addEventListener('click',()=>{closeMusic();fmToggle.focus()});
 document.querySelectorAll('[data-open-music]').forEach(link=>link.addEventListener('click',e=>{
