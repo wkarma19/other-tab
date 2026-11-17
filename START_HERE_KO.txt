@@ -1,27 +1,11 @@
-OTHER TAB. — GitHub Pages + Umami + Spotify
+OTHER TAB. — Floating Glass Music Edition
 
-[1] 배포
-- 이 폴더에서 index.html과 assets 폴더를 GitHub 저장소의 최상위에 업로드하세요.
-- GitHub 저장소 Settings > Pages > Deploy from a branch > main / (root) 설정.
-- 개인 GitHub Pages 예시: https://아이디.github.io/other-tab/
+1. GitHub Pages에 index.html, assets/ 폴더, .nojekyll 파일을 올려주세요.
+2. index.html의 PASTE_YOUR_UMAMI_WEBSITE_ID를 Umami 대시보드에서 발급한 Website ID로 교체하세요. 이 ID를 넣기 전에는 통계가 수집되지 않습니다.
+3. 페이지를 열면 하단에 Sweet Dreams (Eurythmics) 글라스 미니 플레이어가 항상 나타납니다.
+4. ▶ 버튼을 누르면 Spotify 공식 플레이어가 펼쳐집니다. 실제 재생은 Spotify 플레이어 안의 재생 버튼을 눌러야 합니다.
+5. 위쪽의 × 또는 오른쪽의 버튼을 눌러 닫으면 플레이어가 제거되고 재생도 멈춥니다. 자동재생은 지원하지 않습니다.
+6. Spotify 이용 환경에 따라 미리듣기만 되거나 로그인이 필요할 수 있습니다. 외부 Spotify 링크도 사용할 수 있습니다.
+7. Umami에서는 music_player_open, music_player_close, spotify_open 등의 이벤트를 확인할 수 있습니다. 특정 디스코드 계정 식별 기능은 없습니다.
 
-[2] 방문 통계 연결 (필수 사용자 설정)
-- https://cloud.umami.is/ 에서 Website 추가.
-- 등록한 웹사이트의 Website ID를 복사.
-- index.html 파일에서 PASTE_YOUR_UMAMI_WEBSITE_ID 문자열을 찾아 실제 ID로 교체하고 커밋.
-- 이 작업 전에는 통계가 작동하지 않습니다. 아이디는 공개 키 성격이고 패스워드/API 비밀 키는 넣으면 안 됩니다.
-- 기본: 익명 조회 수/국가·기기·브라우저·유입 경로(표시 가능한 범위)
-- 클릭 이벤트: explore_click, nav_collection, nav_about, nav_infj, nav_facts, nav_currently,
-  nav_music, tmi_open, back_to_top, music_player_open, spotify_open
-- 이벤트/세션 통계는 개인 신원 또는 Discord 계정 식별에 사용할 수 없습니다.
-
-[3] 음악
-- Eurythmics — Sweet Dreams (Are Made of This)
-- Spotify 공식 임베드. 방문자가 LISTEN HERE를 클릭하면 플레이어가 로딩됩니다.
-- 오디오를 무단 업로드하거나 MP3 파일로 재배포하지 않습니다.
-- 일부 브라우저/Spotify 계정·지역에 따라 재생 길이/사용 가능 여부가 다릅니다.
-- 재생 자체가 아니라 '플레이어 열기'와 'Spotify 열기' 클릭 이벤트만 기록합니다.
-
-[4] 기존 스타일
-- 유리 보틀, 흩날리는 꽃잎, INFJ 글라스 오브제, 밝은 크림/핑크 톤 유지.
-- 빌드 도구나 Google Apps Script는 필요하지 않습니다.
+GitHub 배포 시 ZIP 파일을 그대로 올리지 말고, 압축을 푼 파일/폴더를 저장소 최상위에 업로드하세요.

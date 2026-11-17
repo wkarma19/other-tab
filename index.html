@@ -195,13 +195,50 @@ footer{background:#f7e5df;border-top:1px solid #ebc8c5}
 @media(max-width:750px){.music-section{padding-top:90px;padding-bottom:85px}.music-layout{grid-template-columns:1fr;gap:32px}.music-title{font-size:clamp(72px,16vw,100px)}.music-art{height:370px;order:2}.music-copy{order:1}.music-track{padding-top:25px}.music-description{margin-bottom:30px}.music-watermark{font-size:18vw;top:30%}.music-headphone{width:69%;height:78%;left:15%;top:10%}.music-actions{gap:15px}}
 @media(max-width:480px){.music-art{height:335px}.music-listen{padding:14px 16px;gap:24px}.music-track h3{font-size:30px}.music-watermark{font-size:19vw}}
 @media(prefers-reduced-motion:reduce){.music-headphone,.music-glass{animation:none!important}}
+
+/* Floating glass music — compact, persistent, and independent of page scroll. */
+.floating-music{position:fixed;right:clamp(18px,3.8vw,60px);bottom:clamp(18px,2.7vw,36px);width:min(372px,calc(100vw - 32px));z-index:1000;color:#3c2829;font-family:inherit;isolation:isolate}
+.fm-strip{position:relative;display:flex;align-items:center;gap:11px;min-height:78px;padding:11px 12px 11px 13px;overflow:hidden;border:1px solid rgba(255,255,255,.85);border-radius:22px;background:linear-gradient(117deg,rgba(255,249,246,.85),rgba(254,234,235,.75) 65%,rgba(255,252,249,.79));-webkit-backdrop-filter:blur(23px) saturate(1.45);backdrop-filter:blur(23px) saturate(1.45);box-shadow:0 14px 40px rgba(95,57,61,.14),inset 0 1px 2px rgba(255,255,255,.92);}
+.fm-strip:before{content:'';pointer-events:none;position:absolute;inset:1px 1px auto 1px;height:43%;border-radius:22px 22px 45% 45%;background:linear-gradient(180deg,rgba(255,255,255,.39),transparent)}
+.fm-thumbnail{width:54px;height:54px;border-radius:16px;flex-shrink:0;position:relative;display:grid;place-items:center;border:1px solid rgba(255,255,255,.7);background:radial-gradient(circle at 26% 20%,#fffaf8,#ead1d2 75%);box-shadow:0 5px 13px #975c6523,inset 0 1px 0 #fff;overflow:hidden}
+.fm-thumbnail img{width:90%;height:90%;object-fit:contain;filter:drop-shadow(3px 5px 4px #81585844)}
+.fm-song{position:relative;min-width:0;flex:1;display:flex;flex-direction:column;gap:3px}
+.fm-kicker{font-size:9px;letter-spacing:.18em;color:#a37682;font-weight:750;line-height:1.4}
+.fm-title{font-family:Georgia,serif;font-size:18px;font-weight:600;line-height:1.15;letter-spacing:-.037em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fm-artist{font-size:11px;color:#806a65;letter-spacing:.01em}
+.fm-toggle{position:relative;border:1px solid rgba(117,66,77,.15);border-radius:50%;height:47px;width:47px;flex-shrink:0;display:grid;place-items:center;color:#fff6f5;background:#452c2d;box-shadow:0 6px 16px #5c333837;cursor:pointer;transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+.fm-toggle:hover{background:#815362;transform:translateY(-2px);box-shadow:0 8px 18px #5c33383d}
+.fm-toggle svg{width:19px;height:19px;fill:currentColor;stroke:none;transform:translateX(1px)}
+.fm-toggle .fm-chevron{display:none;width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.9;transform:none}
+.floating-music.is-open .fm-toggle .fm-play{display:none}
+.floating-music.is-open .fm-toggle .fm-chevron{display:block}
+.fm-panel{position:absolute;right:0;bottom:calc(100% + 12px);width:100%;padding:19px 16px 15px;border:1px solid rgba(255,255,255,.92);border-radius:24px;background:linear-gradient(142deg,rgba(255,251,248,.96),rgba(247,228,227,.95));-webkit-backdrop-filter:blur(28px) saturate(1.4);backdrop-filter:blur(28px) saturate(1.4);box-shadow:0 22px 54px #7a54533d,inset 0 1px 0 #fff;animation:fmReveal .25s cubic-bezier(.2,.8,.2,1) both}
+.fm-panel[hidden]{display:none}
+@keyframes fmReveal{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+.fm-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px}
+.fm-panel-heading{font-family:Georgia,serif;font-size:21px;letter-spacing:-.05em;line-height:1}
+.fm-panel-overline{display:block;font:700 9px/1.6 Arial,sans-serif;letter-spacing:.19em;color:#a3707c;margin-bottom:3px}
+.fm-close{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;border:1px solid #d9b9b8;background:#fff8f5a8;color:#674a4d;font-size:18px;cursor:pointer;transition:background .2s}
+.fm-close:hover{background:#fff}
+.fm-player-embed{height:152px;width:100%;border-radius:13px;overflow:hidden;background:#ead9d7}
+.fm-player-embed iframe{width:100%;height:152px;border:0;display:block;border-radius:13px}
+.fm-panel-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}
+.fm-panel-hint{font-size:10px;color:#947973;line-height:1.35}
+.fm-spotify-link{color:#5b3943;font-size:10px;letter-spacing:.055em;white-space:nowrap;font-weight:750;border-bottom:1px solid rgba(91,57,67,.4);padding-bottom:3px}
+.fm-spotify-link:hover{color:#aa657b}
+.floating-music :is(button,a):focus-visible{outline:2px solid #a66383;outline-offset:3px}
+footer{padding-bottom:max(132px,calc(105px + env(safe-area-inset-bottom, 0px)))}
+@media(max-width:750px){.floating-music{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));width:auto}.fm-strip{min-height:70px;padding:9px 10px;gap:10px;border-radius:20px}.fm-thumbnail{height:49px;width:49px;border-radius:13px}.fm-title{font-size:17px}.fm-toggle{height:44px;width:44px}.fm-panel{padding:16px 12px 13px;border-radius:20px}.fm-panel-hint{font-size:9px}.fm-spotify-link{font-size:9px}footer{padding-bottom:132px}}
+@media(max-width:390px){.fm-kicker{font-size:8px}.fm-title{font-size:16px}.fm-thumbnail{width:44px;height:44px}.fm-strip{gap:9px}.fm-toggle{width:42px;height:42px}}
+@media(prefers-reduced-motion:reduce){.fm-panel{animation:none}.fm-toggle{transition:none}}
+
 </style>
 <!-- Umami Cloud analytics: Replace the single placeholder ID with your Umami Website ID.
      This page contains no custom Discord account identification or fingerprinting code. -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="00f23e47-f4a1-43fc-b912-be813049d637"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="PASTE_YOUR_UMAMI_WEBSITE_ID"></script>
 </head>
 <body>
-<nav class="site-nav" aria-label="메인 메뉴"><a class="logo" href="#top" aria-label="맨 위로">OTHER TAB<span>.</span></a><div class="nav-menu"><a href="#collection" data-umami-event="nav_collection">THE COLLECTION</a><a href="#about" data-umami-event="nav_about">ABOUT</a><a href="#infj" data-umami-event="nav_infj">INFJ</a><a href="#facts" data-umami-event="nav_facts">RANDOM FACTS</a><a href="#currently" data-umami-event="nav_currently">CURRENTLY</a><a href="#music" data-umami-event="nav_music">MUSIC</a></div><div class="nav-right"><span class="mono" style="color:#96736f">EST. 2026</span><button id="menuToggle" class="nav-icon" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i></button></div><div id="mobilePanel" class="mobile-panel"><a href="#collection" data-umami-event="nav_collection">THE COLLECTION</a><a href="#about" data-umami-event="nav_about">ABOUT</a><a href="#infj" data-umami-event="nav_infj">INFJ</a><a href="#facts" data-umami-event="nav_facts">RANDOM FACTS</a><a href="#currently" data-umami-event="nav_currently">CURRENTLY</a><a href="#music" data-umami-event="nav_music">MUSIC</a></div></nav>
+<nav class="site-nav" aria-label="메인 메뉴"><a class="logo" href="#top" aria-label="맨 위로">OTHER TAB<span>.</span></a><div class="nav-menu"><a href="#collection" data-umami-event="nav_collection">THE COLLECTION</a><a href="#about" data-umami-event="nav_about">ABOUT</a><a href="#infj" data-umami-event="nav_infj">INFJ</a><a href="#facts" data-umami-event="nav_facts">RANDOM FACTS</a><a href="#currently" data-umami-event="nav_currently">CURRENTLY</a><a href="#floatingMusic" data-open-music data-umami-event="nav_music">MUSIC</a></div><div class="nav-right"><span class="mono" style="color:#96736f">EST. 2026</span><button id="menuToggle" class="nav-icon" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i></button></div><div id="mobilePanel" class="mobile-panel"><a href="#collection" data-umami-event="nav_collection">THE COLLECTION</a><a href="#about" data-umami-event="nav_about">ABOUT</a><a href="#infj" data-umami-event="nav_infj">INFJ</a><a href="#facts" data-umami-event="nav_facts">RANDOM FACTS</a><a href="#currently" data-umami-event="nav_currently">CURRENTLY</a><a href="#floatingMusic" data-open-music data-umami-event="nav_music">MUSIC</a></div></nav>
 <main>
 <section class="hero" id="top"><div class="hero-inner"><div class="petal-rain petal-rain--back" aria-hidden="true" id="petalRainBack"></div><div class="petal-rain petal-rain--front" aria-hidden="true" id="petalRainFront"></div><div class="hero-bgword" aria-hidden="true">TAB</div><div class="hero-copy"><div class="eyebrow mono">PERSONAL INDEX / 001</div><h1 class="hero-title serif"><span class="line">Other</span><span class="line"><i>Tab</i><span class="period">.</span></span></h1><p class="hero-description">A small collection of things I like, save, and keep around.</p><a class="hero-button" href="#collection" data-umami-event="explore_click">TAKE A LOOK <span aria-hidden="true">↗</span></a></div>
 <div class="hero-visual" id="heroVisual" aria-label="내 취향을 담은 투명한 유리병과 장식 오브젝트"><div class="bottle-shadow"></div><div class="float float-a"><img src="assets/blossom.webp" alt="" loading="eager"></div><div class="float float-b"><img src="assets/heart.webp" alt="" loading="eager"></div><div class="float float-c"><img src="assets/petal-01.webp" alt="" loading="eager"></div><div class="float float-d"><img src="assets/star.webp" alt="" loading="eager"></div><div class="float float-e"><img src="assets/orb.webp" alt="" loading="eager"></div><div class="float float-f"><img src="assets/petal-02.webp" alt="" loading="eager"></div><div class="bottle-holder" id="bottleHolder" title="드래그해보세요"><img class="hero-bottle" src="assets/bottle.webp" alt="핑크 리본을 묶은 유리병 속에 벚꽃, 헤드폰, 게임패드, 유리 하트가 담겨 있다" loading="eager"></div></div>
@@ -239,35 +276,36 @@ footer{background:#f7e5df;border-top:1px solid #ebc8c5}
 </section>
 <section class="section facts" id="facts"><div class="section-head reveal"><div><span class="section-num">04 / Click to reveal</span><h2 class="section-title serif">Random <em>facts.</em></h2></div><p class="section-intro">거창한 소개 대신, 소소한 취향 몇 가지.<br>카드를 누르면 답이 나와.</p></div><div class="facts-grid"><button class="fact reveal" aria-expanded="false"><span class="fact-no">01 / FAVORITE FOOD</span><span class="fact-prompt">치킨은 어떤 쪽?</span><span class="fact-answer">간장치킨. 일단 이쪽이 우세.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">02 / COLOR PALETTE</span><span class="fact-prompt">제일 좋아하는 색?</span><span class="fact-answer">블랙 &amp; 핑크. 둘 다 포기 못 함.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">03 / STYLE</span><span class="fact-prompt">자주 입는 스타일?</span><span class="fact-answer">블랙 계열, 롱스커트, 크롭티.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">04 / OFF DUTY</span><span class="fact-prompt">시간 나면 뭐 해?</span><span class="fact-answer">게임. 기분 따라 이것저것.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">05 / KARAOKE</span><span class="fact-prompt">노래방 좋아해?</span><span class="fact-answer">코인노래방 좋아함. 이건 꽤 오래된 취향.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">06 / CREATIVE</span><span class="fact-prompt">만드는 걸 좋아해?</span><span class="fact-answer">이미지, 디자인, 웹사이트. 만들고 바꿔보기.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">07 / PLANNING</span><span class="fact-prompt">계획 짜는 편?</span><span class="fact-answer">계획 세우고 정리하는 것도 좋아함.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">08 / FOOD AGAIN</span><span class="fact-prompt">치킨 말고는?</span><span class="fact-answer">김치, 올리브도 좋아하는 편.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">09 / DIGITAL HOBBY</span><span class="fact-prompt">요즘의 소소한 취미</span><span class="fact-answer">AI랑 이것저것 만들어 보는 것.</span><span class="fact-corner">+</span></button></div></section>
 <section class="section currently" id="currently"><div class="current-wrap"><div class="current-copy reveal"><div class="eyebrow mono">05 / CURRENTLY INTO</div><h2 class="current-title serif">On my<br><em>radar.</em></h2><div class="current-list"><div><span>ALWAYS</span><span>옷 · 디자인 · 마음에 드는 것 저장</span></div><div><span>MORE OF</span><span>이미지와 웹, 새로운 실험</span></div><div><span>FOR FUN</span><span>게임 · 코인노래방 · 이것저것</span></div></div></div><div class="current-visual reveal" aria-label="투명한 글라스 오브제"><span class="current-backtype" aria-hidden="true">NOW</span><img class="current-main-object" src="assets/star.webp" alt="투명한 핑크 글라스 스타 오브제" loading="lazy"><img class="current-orb" src="assets/orb.webp" alt="" loading="lazy"><span class="current-caption">ISSUE 05 &nbsp; / &nbsp; CURRENT SELECTION</span></div></div></section>
-<section class="section music-section" id="music" aria-labelledby="music-title">
-  <div class="music-layout">
-    <div class="music-copy reveal">
-      <div class="eyebrow mono">06 / CURRENT SOUNDTRACK</div>
-      <h2 class="serif music-title" id="music-title">On<br><em>repeat.</em></h2>
-      <p class="music-description">그냥 좋아하는 곡 하나.</p>
-      <div class="music-track">
-        <span class="music-overline mono">THE ONE I KEEP COMING BACK TO</span>
-        <h3 class="serif">Sweet Dreams<br><em>(Are Made of This)</em></h3>
-        <p>Eurythmics <span aria-hidden="true">·</span> 1983</p>
-      </div>
-      <div class="music-actions">
-        <button class="music-listen" id="musicLoad" type="button" aria-controls="spotifyEmbedWrap" aria-expanded="false"><span>LISTEN HERE</span><span aria-hidden="true">↗</span></button>
-        <a class="music-external" href="https://open.spotify.com/track/6zIfdCmmhPCX0cMquBsC37" target="_blank" rel="noopener noreferrer" data-umami-event="spotify_open">OPEN IN SPOTIFY <span aria-hidden="true">↗</span></a>
-      </div>
-      <div id="spotifyEmbedWrap" class="spotify-embed-wrap" hidden aria-label="Spotify 공식 음악 플레이어"></div>
-      <p class="music-note">공식 Spotify 플레이어 · 클릭해야 로드돼요. 재생은 Spotify 이용 환경에 따라 달라질 수 있어요.</p>
+
+</main><footer><div class="footer-top"><div class="footer-name serif">Other Tab<span style="color:#bc7482">.</span></div><a class="mono" href="#top" data-umami-event="back_to_top">BACK TO TOP ↑</a></div><div class="footer-micro"><span>A LITTLE CORNER OF THE INTERNET.</span><span>PERSONAL INDEX / 2026 · ANONYMOUS VISIT STATS</span></div></footer>
+
+<!-- Persistent, consent-by-click Spotify listening panel. Click to load player; no autoplay. -->
+<aside class="floating-music" id="floatingMusic" aria-label="항상 표시되는 음악 플레이어">
+  <div class="fm-panel" id="fmPanel" hidden aria-label="Spotify 재생 패널">
+    <div class="fm-panel-head">
+      <div><span class="fm-panel-overline">LISTENING ROOM / 001</span><span class="fm-panel-heading">On repeat.</span></div>
+      <button type="button" class="fm-close" id="fmClose" aria-label="음악 플레이어 닫기, 재생 중이면 중지">×</button>
     </div>
-    <div class="music-art reveal" aria-hidden="true">
-      <div class="music-circle"></div>
-      <span class="music-watermark serif">SOUND</span>
-      <img class="music-headphone" src="assets/headphones.webp" loading="lazy" alt="">
-      <img class="music-glass music-glass-a" src="assets/orb.webp" loading="lazy" alt="">
-      <img class="music-glass music-glass-b" src="assets/sparkle.webp" loading="lazy" alt="">
-      <div class="music-art-label mono">TRACK 001 <span> / </span> FAVORITES</div>
+    <div class="fm-player-embed" id="fmPlayerEmbed"></div>
+    <div class="fm-panel-foot">
+      <span class="fm-panel-hint">재생은 플레이어 안에서 직접 눌러줘.</span>
+      <a class="fm-spotify-link" href="https://open.spotify.com/track/6zIfdCmmhPCX0cMquBsC37" target="_blank" rel="noopener noreferrer" data-umami-event="spotify_open">OPEN IN SPOTIFY ↗</a>
     </div>
   </div>
-</section>
-</main><footer><div class="footer-top"><div class="footer-name serif">Other Tab<span style="color:#bc7482">.</span></div><a class="mono" href="#top" data-umami-event="back_to_top">BACK TO TOP ↑</a></div><div class="footer-micro"><span>A LITTLE CORNER OF THE INTERNET.</span><span>PERSONAL INDEX / 2026 · ANONYMOUS VISIT STATS</span></div></footer>
+  <div class="fm-strip">
+    <span class="fm-thumbnail" aria-hidden="true"><img src="assets/headphones.webp" alt=""></span>
+    <div class="fm-song">
+      <span class="fm-kicker">ON REPEAT / 001</span>
+      <span class="fm-title">Sweet Dreams</span>
+      <span class="fm-artist">Eurythmics</span>
+    </div>
+    <button class="fm-toggle" id="fmToggle" type="button" aria-label="Spotify 음악 플레이어 열기" aria-expanded="false" aria-controls="fmPanel" title="Spotify 플레이어 열기">
+      <svg class="fm-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8c0-.85.91-1.39 1.64-.98L20 10.99c.68.43.68 1.58 0 2.01L8.64 20.18A1.09 1.09 0 0 1 7 19.2V4.8Z"/></svg>
+      <svg class="fm-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 14 7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</aside>
+
 <script>
 (()=>{const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;const $=s=>document.querySelector(s);const hero=$('#heroVisual'),holder=$('#bottleHolder');let px=0,py=0,dx=0,dy=0,down=false,startX=0,startY=0;
 // Create drifting blossom and petal layers from the existing AI-generated transparent assets.
@@ -300,20 +338,36 @@ const obs=new IntersectionObserver(entries=>entries.forEach(x=>{if(x.isIntersect
 document.querySelectorAll('.fact').forEach(btn=>btn.addEventListener('click',()=>{let open=btn.classList.toggle('is-open');btn.setAttribute('aria-expanded',String(open));btn.querySelector('.fact-corner').textContent=open?'−':'+';if(open&&window.umami?.track){window.umami.track('tmi_open',{topic:btn.querySelector('.fact-no')?.textContent.trim()||'random'})}}));
 const menu=$('#menuToggle'),panel=$('#mobilePanel');menu.addEventListener('click',()=>{const on=panel.classList.toggle('show');menu.setAttribute('aria-expanded',String(on));menu.setAttribute('aria-label',on?'메뉴 닫기':'메뉴 열기')});panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{panel.classList.remove('show');menu.setAttribute('aria-expanded','false')}));
 if(!reduce){let pending=false;addEventListener('scroll',()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{const s=Math.min(scrollY/(innerHeight||800),1.6);hero.style.transform=`translate3d(0, ${Math.min(s*12,16)}px, 0)`;hero.style.setProperty('--jarPosY',((py||0)*.22+s*38)+'px');hero.style.setProperty('--petal-wind',(Math.sin(scrollY*.009)*16).toFixed(1)+'px');pending=false})},{passive:true})}
-// Load licensed Spotify embed only upon user request (no auto-play, no passive third-party player load).
-const musicLoad=$('#musicLoad'),spotifyWrap=$('#spotifyEmbedWrap');
-if(musicLoad&&spotifyWrap){musicLoad.addEventListener('click',()=>{
- if(spotifyWrap.hasChildNodes()){spotifyWrap.hidden=!spotifyWrap.hidden;musicLoad.setAttribute('aria-expanded',String(!spotifyWrap.hidden));musicLoad.querySelector('span').textContent=spotifyWrap.hidden?'LISTEN HERE':'HIDE PLAYER';return;}
- const frame=document.createElement('iframe');
- frame.src='https://open.spotify.com/embed/track/6zIfdCmmhPCX0cMquBsC37?utm_source=generator';
- frame.title='Eurythmics — Sweet Dreams (Are Made of This), Spotify Player';
- frame.loading='lazy'; frame.referrerPolicy='strict-origin-when-cross-origin';
- frame.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
- frame.setAttribute('allowfullscreen','');
- spotifyWrap.appendChild(frame);spotifyWrap.hidden=false;
- musicLoad.setAttribute('aria-expanded','true');musicLoad.querySelector('span').textContent='HIDE PLAYER';
- if(window.umami?.track)window.umami.track('music_player_open',{track:'eurythmics_sweet_dreams'});
- });}
+// Fixed glass music panel. The official Spotify iframe is created only after user interaction.
+const fmRoot=$('#floatingMusic'),fmPanel=$('#fmPanel'),fmToggle=$('#fmToggle'),fmClose=$('#fmClose'),fmEmbed=$('#fmPlayerEmbed');
+const trackMusic=(name)=>{if(window.umami?.track)window.umami.track(name,{track:'eurythmics_sweet_dreams'})};
+function openMusic(){
+  if(!fmEmbed.firstChild){
+    const frame=document.createElement('iframe');
+    frame.src='https://open.spotify.com/embed/track/6zIfdCmmhPCX0cMquBsC37?utm_source=generator';
+    frame.title='Eurythmics — Sweet Dreams (Are Made of This), 공식 Spotify 플레이어';
+    frame.loading='eager';frame.referrerPolicy='strict-origin-when-cross-origin';
+    frame.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+    frame.setAttribute('allowfullscreen','');
+    fmEmbed.appendChild(frame);
+  }
+  fmPanel.hidden=false;fmRoot.classList.add('is-open');
+  fmToggle.setAttribute('aria-expanded','true');fmToggle.setAttribute('aria-label','음악 플레이어 닫기, 재생 중이면 중지');
+  fmToggle.title='Spotify 플레이어 닫기';trackMusic('music_player_open');
+}
+function closeMusic(){
+  fmPanel.hidden=true;fmRoot.classList.remove('is-open');
+  fmToggle.setAttribute('aria-expanded','false');fmToggle.setAttribute('aria-label','Spotify 음악 플레이어 열기');
+  fmToggle.title='Spotify 플레이어 열기';
+  fmEmbed.replaceChildren(); // Closing actually stops iframe playback: no ghost audio.
+  trackMusic('music_player_close');
+}
+fmToggle.addEventListener('click',()=>fmPanel.hidden?openMusic():closeMusic());
+fmClose.addEventListener('click',()=>{closeMusic();fmToggle.focus()});
+document.querySelectorAll('[data-open-music]').forEach(link=>link.addEventListener('click',e=>{
+  e.preventDefault();openMusic();fmToggle.focus();
+}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!fmPanel.hidden){closeMusic();fmToggle.focus()}});
 
 })();
 </script>
