@@ -10,7 +10,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:Inter,'Noto Sans KR','Apple SD Gothic Neo',Arial,sans-serif;background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}button,a{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}img{display:block;user-select:none;-webkit-user-drag:none}button:focus-visible,a:focus-visible{outline:2px solid #a14464;outline-offset:4px}
 .serif{font-family:'Iowan Old Style','Bodoni MT','Didot','Times New Roman',Georgia,serif;font-weight:500;letter-spacing:-.06em}
 .mono{font-size:10px;letter-spacing:.23em;font-weight:650;text-transform:uppercase}.eyebrow{display:flex;align-items:center;gap:16px;color:#986b72}.eyebrow:after{content:"";height:1px;width:47px;background:currentColor;opacity:.55}
-.site-nav{height:98px;position:absolute;top:0;left:0;right:0;z-index:15;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,5vw,92px)}.logo{font-family:Georgia,serif;font-weight:800;font-size:23px;letter-spacing:-.09em;white-space:nowrap}.logo span{color:#bf6f7f}.nav-menu{display:flex;align-items:center;gap:36px;font-size:10px;letter-spacing:.15em;font-weight:700}.nav-menu a:hover{color:#af6b7b}.nav-right{display:flex;gap:28px;align-items:center}.nav-icon{height:26px;width:30px;display:grid;gap:6px;align-content:center;background:transparent;border:0;padding:0}.nav-icon i{display:block;height:1px;background:var(--ink);width:27px}.nav-icon i:last-child{width:18px;margin-left:auto}.mobile-panel{display:none}
+.site-nav{height:98px;position:absolute;top:0;left:0;right:0;z-index:15;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,5vw,92px)}.logo{font-family:Georgia,serif;font-weight:800;font-size:23px;letter-spacing:-.09em;white-space:nowrap}.logo span{color:#bf6f7f}.nav-menu{display:flex;align-items:center;gap:25px;font-size:10px;letter-spacing:.15em;font-weight:700}.nav-menu a:hover{color:#af6b7b}.nav-right{display:flex;gap:28px;align-items:center}.nav-icon{height:26px;width:30px;display:grid;gap:6px;align-content:center;background:transparent;border:0;padding:0}.nav-icon i{display:block;height:1px;background:var(--ink);width:27px}.nav-icon i:last-child{width:18px;margin-left:auto}.mobile-panel{display:none}
 .hero{position:relative;min-height:800px;height:min(930px,100svh);background:radial-gradient(ellipse at 65% 25%,#fff4ef 0%,transparent 50%),linear-gradient(140deg,#f5e6e1 0%,#f1ddd8 72%,#ebd1ce 100%);overflow:hidden;isolation:isolate}.hero-inner{width:100%;height:100%;position:relative;max-width:1850px;margin:auto}.hero-copy{position:absolute;left:clamp(30px,6vw,111px);top:clamp(210px,27%,300px);z-index:8;max-width:585px}.hero-title{font-size:clamp(90px,10.5vw,170px);line-height:.84;margin:28px 0 31px;position:relative;white-space:nowrap}.hero-title .line{display:block}.hero-title .line:last-child{padding-left:.02em}.hero-title .period{color:#ba7380}.hero-description{max-width:360px;font-size:17px;line-height:1.7;color:#76615b;margin:0 0 31px;font-family:Georgia,serif;font-style:italic}.hero-button{display:inline-flex;gap:37px;align-items:center;border:1px solid #382620;border-radius:40px;padding:14px 21px;background:#30201c;color:#fff9f6;font-size:12px;font-weight:650;box-shadow:0 8px 20px #6342391d;transition:transform .25s,background .25s}.hero-button:hover{transform:translateY(-3px);background:#6d3c46}.hero-button span{font-size:19px;font-weight:400}.hero-bgword{font-family:Georgia,serif;position:absolute;font-size:clamp(240px,34vw,610px);font-style:italic;right:-6%;top:22%;line-height:1;color:#deb3b2;opacity:.38;pointer-events:none;user-select:none;white-space:nowrap;z-index:0}.hero-visual{position:absolute;right:clamp(0px,6.1vw,150px);top:13%;width:clamp(500px,47.5vw,760px);height:75%;z-index:3;pointer-events:none;filter:drop-shadow(0 20px 38px #8a555126)}.bottle-holder{position:absolute;top:3%;left:18%;width:69%;height:99%;transform:translate3d(var(--jarPosX, 0px),var(--jarPosY, 0px),0) rotateZ(var(--dragY)) rotateY(var(--dragX));transition:transform .4s cubic-bezier(.22,.65,.2,1);pointer-events:auto;touch-action:pan-y;cursor:grab;z-index:5}.bottle-holder.grabbing{cursor:grabbing;transition:none}.hero-bottle{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 17px #50332e2c);animation:bottleFloat 6.8s ease-in-out infinite}.bottle-shadow{position:absolute;width:55%;height:9%;left:27%;bottom:1.5%;background:radial-gradient(ellipse,#6e49404a,transparent 67%);filter:blur(9px);z-index:1;transform:scaleX(1.5)}
 .float{position:absolute;pointer-events:none;filter:drop-shadow(0 15px 16px #885a5a19);will-change:transform}.float img{width:100%;height:100%;object-fit:contain}.float-a{width:24%;height:21%;top:8%;left:5%;animation:floatOne 8s ease-in-out infinite;z-index:6}.float-b{width:18%;height:15%;right:-5%;top:20%;animation:floatTwo 7.3s ease-in-out infinite;z-index:6}.float-c{width:16%;height:16%;bottom:10%;left:5%;animation:floatOne 9s ease-in-out infinite reverse;z-index:7}.float-d{width:17%;height:18%;right:-2%;bottom:11%;animation:floatTwo 9s ease-in-out infinite reverse;z-index:6}.float-e{width:12%;height:12%;left:5%;top:42%;animation:floatTwo 10s ease-in-out infinite;z-index:2}.float-f{width:14%;height:13%;right:1%;top:45%;animation:floatOne 10.5s ease-in-out infinite;z-index:6}
 .hero-bottom{position:absolute;left:clamp(30px,6vw,111px);right:clamp(30px,6vw,111px);bottom:39px;display:flex;justify-content:space-between;align-items:flex-end;z-index:8}.micro{font-size:9px;letter-spacing:.22em;color:#856b66}.scroll-label{text-align:center;display:grid;justify-items:center;gap:12px}.scroll-label:after{content:"";width:1px;height:38px;background:#947975;animation:scrollLine 2s ease-in-out infinite}.issue{font-family:Georgia,serif;font-size:13px;font-style:italic;color:#6d554e}
@@ -160,12 +160,48 @@ footer{background:#f7e5df;border-top:1px solid #ebc8c5}
  .current-visual img.current-orb{left:69%;top:12%;width:20%;height:22%}
 }
 
+
+/* On Repeat — minimal editorial music vignette */
+.music-section{background:radial-gradient(ellipse at 77% 28%,#fff7f2 0%,transparent 45%),linear-gradient(145deg,#f9eeea 0%,#f5e4e2 100%);padding-top:clamp(95px,10vw,145px);padding-bottom:clamp(95px,10vw,145px)}
+.music-layout{max-width:1380px;margin:auto;display:grid;grid-template-columns:1fr .9fr;gap:9%;align-items:center}
+.music-title{font-size:clamp(79px,8vw,132px);line-height:.87;letter-spacing:-.07em;margin:29px 0 24px}
+.music-title em{color:#b26f83;font-weight:400}
+.music-description{font-size:14px;line-height:1.85;color:#856761;margin:0 0 38px}
+.music-track{border-top:1px solid #d8b7b3;padding:27px 0 19px;max-width:560px}
+.music-overline{color:#a56e76;display:block;font-size:9px}
+.music-track h3{font-size:clamp(28px,3.05vw,45px);line-height:1.16;letter-spacing:-.035em;margin:19px 0 14px}
+.music-track h3 em{font-weight:400}
+.music-track p{font-size:12px;color:#896c66;margin:0}
+.music-actions{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:15px}
+.music-listen{background:#32211f;color:#fff6f0;border:1px solid #32211f;padding:15px 19px;border-radius:30px;display:flex;gap:40px;align-items:center;font-size:10px;font-weight:700;letter-spacing:.09em;transition:transform .2s,background .2s}
+.music-listen:hover{transform:translateY(-2px);background:#7e4e57}
+.music-listen span:last-child{font-size:15px}
+.music-external{font-size:10px;font-weight:750;letter-spacing:.095em;border-bottom:1px solid #bd9892;padding:11px 0}
+.music-external:hover{color:#a75a77}
+.music-note{font-size:10px;line-height:1.65;color:#977b78;margin:16px 0 0;max-width:500px}
+.spotify-embed-wrap{max-width:510px;margin-top:25px;min-height:152px}
+.spotify-embed-wrap[hidden]{display:none}
+.spotify-embed-wrap iframe{display:block;border:0;width:100%;height:152px;border-radius:12px}
+.music-art{height:500px;position:relative;isolation:isolate;overflow:hidden;border:1px solid #e6ccc9;background:radial-gradient(ellipse at 40% 32%,#fff9f5,#f1d8d8 68%,#e9c6c8 100%);border-radius:2px}
+.music-circle{position:absolute;width:64%;aspect-ratio:1;top:18%;left:17%;border-radius:50%;border:1px solid #ffffff88;background:radial-gradient(circle at 38% 28%,#fff9f4bb,#f0d4d1aa 65%,#c8999b2b);box-shadow:17px 24px 70px #5d414015}
+.music-watermark{position:absolute;top:27%;left:3%;font-size:clamp(80px,9.5vw,164px);color:#d59ca1;opacity:.29;letter-spacing:-.075em;white-space:nowrap}
+.music-headphone{position:absolute;width:71%;height:77%;object-fit:contain;top:10%;left:15%;filter:drop-shadow(8px 20px 22px #6d4d483a);animation:floatOne 7.8s ease-in-out infinite;z-index:3}
+.music-glass{position:absolute;object-fit:contain;filter:drop-shadow(9px 12px 11px #7e53562b);z-index:4}
+.music-glass-a{width:15%;height:15%;top:12%;right:9%;animation:floatTwo 8.5s ease-in-out infinite}
+.music-glass-b{width:9%;height:9%;left:12%;bottom:18%;animation:floatOne 10s ease-in-out infinite}
+.music-art-label{position:absolute;bottom:23px;left:29px;color:#946f6b;z-index:5}
+.music-art-label span{color:#be9191;margin:0 8px}
+@media(max-width:950px){.music-layout{gap:5%}.music-art{height:430px}.music-watermark{font-size:10vw}}
+@media(max-width:750px){.music-section{padding-top:90px;padding-bottom:85px}.music-layout{grid-template-columns:1fr;gap:32px}.music-title{font-size:clamp(72px,16vw,100px)}.music-art{height:370px;order:2}.music-copy{order:1}.music-track{padding-top:25px}.music-description{margin-bottom:30px}.music-watermark{font-size:18vw;top:30%}.music-headphone{width:69%;height:78%;left:15%;top:10%}.music-actions{gap:15px}}
+@media(max-width:480px){.music-art{height:335px}.music-listen{padding:14px 16px;gap:24px}.music-track h3{font-size:30px}.music-watermark{font-size:19vw}}
+@media(prefers-reduced-motion:reduce){.music-headphone,.music-glass{animation:none!important}}
 </style>
-<!-- Umami: replace PASTE_YOUR_UMAMI_WEBSITE_ID with the ID copied from Umami Cloud. -->
+<!-- Umami Cloud analytics: Replace the single placeholder ID with your Umami Website ID.
+     This page contains no custom Discord account identification or fingerprinting code. -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="PASTE_YOUR_UMAMI_WEBSITE_ID"></script>
 </head>
 <body>
-<nav class="site-nav" aria-label="메인 메뉴"><a class="logo" href="#top" aria-label="맨 위로">OTHER TAB<span>.</span></a><div class="nav-menu"><a href="#collection" data-umami-event="nav_collection">THE COLLECTION</a><a href="#about" data-umami-event="nav_about">ABOUT</a><a href="#infj" data-umami-event="nav_infj">INFJ</a><a href="#facts" data-umami-event="nav_facts">RANDOM FACTS</a><a href="#currently" data-umami-event="nav_currently">CURRENTLY</a></div><div class="nav-right"><span class="mono" style="color:#96736f">EST. 2026</span><button id="menuToggle" class="nav-icon" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i></button></div><div id="mobilePanel" class="mobile-panel"><a href="#collection" data-umami-event="nav_collection">THE COLLECTION</a><a href="#about" data-umami-event="nav_about">ABOUT</a><a href="#infj" data-umami-event="nav_infj">INFJ</a><a href="#facts" data-umami-event="nav_facts">RANDOM FACTS</a><a href="#currently" data-umami-event="nav_currently">CURRENTLY</a></div></nav>
+<nav class="site-nav" aria-label="메인 메뉴"><a class="logo" href="#top" aria-label="맨 위로">OTHER TAB<span>.</span></a><div class="nav-menu"><a href="#collection" data-umami-event="nav_collection">THE COLLECTION</a><a href="#about" data-umami-event="nav_about">ABOUT</a><a href="#infj" data-umami-event="nav_infj">INFJ</a><a href="#facts" data-umami-event="nav_facts">RANDOM FACTS</a><a href="#currently" data-umami-event="nav_currently">CURRENTLY</a><a href="#music" data-umami-event="nav_music">MUSIC</a></div><div class="nav-right"><span class="mono" style="color:#96736f">EST. 2026</span><button id="menuToggle" class="nav-icon" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i></button></div><div id="mobilePanel" class="mobile-panel"><a href="#collection" data-umami-event="nav_collection">THE COLLECTION</a><a href="#about" data-umami-event="nav_about">ABOUT</a><a href="#infj" data-umami-event="nav_infj">INFJ</a><a href="#facts" data-umami-event="nav_facts">RANDOM FACTS</a><a href="#currently" data-umami-event="nav_currently">CURRENTLY</a><a href="#music" data-umami-event="nav_music">MUSIC</a></div></nav>
 <main>
 <section class="hero" id="top"><div class="hero-inner"><div class="petal-rain petal-rain--back" aria-hidden="true" id="petalRainBack"></div><div class="petal-rain petal-rain--front" aria-hidden="true" id="petalRainFront"></div><div class="hero-bgword" aria-hidden="true">TAB</div><div class="hero-copy"><div class="eyebrow mono">PERSONAL INDEX / 001</div><h1 class="hero-title serif"><span class="line">Other</span><span class="line"><i>Tab</i><span class="period">.</span></span></h1><p class="hero-description">A small collection of things I like, save, and keep around.</p><a class="hero-button" href="#collection" data-umami-event="explore_click">TAKE A LOOK <span aria-hidden="true">↗</span></a></div>
 <div class="hero-visual" id="heroVisual" aria-label="내 취향을 담은 투명한 유리병과 장식 오브젝트"><div class="bottle-shadow"></div><div class="float float-a"><img src="assets/blossom.webp" alt="" loading="eager"></div><div class="float float-b"><img src="assets/heart.webp" alt="" loading="eager"></div><div class="float float-c"><img src="assets/petal-01.webp" alt="" loading="eager"></div><div class="float float-d"><img src="assets/star.webp" alt="" loading="eager"></div><div class="float float-e"><img src="assets/orb.webp" alt="" loading="eager"></div><div class="float float-f"><img src="assets/petal-02.webp" alt="" loading="eager"></div><div class="bottle-holder" id="bottleHolder" title="드래그해보세요"><img class="hero-bottle" src="assets/bottle.webp" alt="핑크 리본을 묶은 유리병 속에 벚꽃, 헤드폰, 게임패드, 유리 하트가 담겨 있다" loading="eager"></div></div>
@@ -203,7 +239,35 @@ footer{background:#f7e5df;border-top:1px solid #ebc8c5}
 </section>
 <section class="section facts" id="facts"><div class="section-head reveal"><div><span class="section-num">04 / Click to reveal</span><h2 class="section-title serif">Random <em>facts.</em></h2></div><p class="section-intro">거창한 소개 대신, 소소한 취향 몇 가지.<br>카드를 누르면 답이 나와.</p></div><div class="facts-grid"><button class="fact reveal" aria-expanded="false"><span class="fact-no">01 / FAVORITE FOOD</span><span class="fact-prompt">치킨은 어떤 쪽?</span><span class="fact-answer">간장치킨. 일단 이쪽이 우세.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">02 / COLOR PALETTE</span><span class="fact-prompt">제일 좋아하는 색?</span><span class="fact-answer">블랙 &amp; 핑크. 둘 다 포기 못 함.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">03 / STYLE</span><span class="fact-prompt">자주 입는 스타일?</span><span class="fact-answer">블랙 계열, 롱스커트, 크롭티.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">04 / OFF DUTY</span><span class="fact-prompt">시간 나면 뭐 해?</span><span class="fact-answer">게임. 기분 따라 이것저것.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">05 / KARAOKE</span><span class="fact-prompt">노래방 좋아해?</span><span class="fact-answer">코인노래방 좋아함. 이건 꽤 오래된 취향.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">06 / CREATIVE</span><span class="fact-prompt">만드는 걸 좋아해?</span><span class="fact-answer">이미지, 디자인, 웹사이트. 만들고 바꿔보기.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">07 / PLANNING</span><span class="fact-prompt">계획 짜는 편?</span><span class="fact-answer">계획 세우고 정리하는 것도 좋아함.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">08 / FOOD AGAIN</span><span class="fact-prompt">치킨 말고는?</span><span class="fact-answer">김치, 올리브도 좋아하는 편.</span><span class="fact-corner">+</span></button><button class="fact reveal" aria-expanded="false"><span class="fact-no">09 / DIGITAL HOBBY</span><span class="fact-prompt">요즘의 소소한 취미</span><span class="fact-answer">AI랑 이것저것 만들어 보는 것.</span><span class="fact-corner">+</span></button></div></section>
 <section class="section currently" id="currently"><div class="current-wrap"><div class="current-copy reveal"><div class="eyebrow mono">05 / CURRENTLY INTO</div><h2 class="current-title serif">On my<br><em>radar.</em></h2><div class="current-list"><div><span>ALWAYS</span><span>옷 · 디자인 · 마음에 드는 것 저장</span></div><div><span>MORE OF</span><span>이미지와 웹, 새로운 실험</span></div><div><span>FOR FUN</span><span>게임 · 코인노래방 · 이것저것</span></div></div></div><div class="current-visual reveal" aria-label="투명한 글라스 오브제"><span class="current-backtype" aria-hidden="true">NOW</span><img class="current-main-object" src="assets/star.webp" alt="투명한 핑크 글라스 스타 오브제" loading="lazy"><img class="current-orb" src="assets/orb.webp" alt="" loading="lazy"><span class="current-caption">ISSUE 05 &nbsp; / &nbsp; CURRENT SELECTION</span></div></div></section>
-</main><footer><div class="footer-top"><div class="footer-name serif">Other Tab<span style="color:#bc7482">.</span></div><a class="mono" href="#top" data-umami-event="back_to_top">BACK TO TOP ↑</a></div><div class="footer-micro"><span>A LITTLE CORNER OF THE INTERNET.</span><span>PERSONAL INDEX / 2026</span></div></footer>
+<section class="section music-section" id="music" aria-labelledby="music-title">
+  <div class="music-layout">
+    <div class="music-copy reveal">
+      <div class="eyebrow mono">06 / CURRENT SOUNDTRACK</div>
+      <h2 class="serif music-title" id="music-title">On<br><em>repeat.</em></h2>
+      <p class="music-description">그냥 좋아하는 곡 하나.</p>
+      <div class="music-track">
+        <span class="music-overline mono">THE ONE I KEEP COMING BACK TO</span>
+        <h3 class="serif">Sweet Dreams<br><em>(Are Made of This)</em></h3>
+        <p>Eurythmics <span aria-hidden="true">·</span> 1983</p>
+      </div>
+      <div class="music-actions">
+        <button class="music-listen" id="musicLoad" type="button" aria-controls="spotifyEmbedWrap" aria-expanded="false"><span>LISTEN HERE</span><span aria-hidden="true">↗</span></button>
+        <a class="music-external" href="https://open.spotify.com/track/6zIfdCmmhPCX0cMquBsC37" target="_blank" rel="noopener noreferrer" data-umami-event="spotify_open">OPEN IN SPOTIFY <span aria-hidden="true">↗</span></a>
+      </div>
+      <div id="spotifyEmbedWrap" class="spotify-embed-wrap" hidden aria-label="Spotify 공식 음악 플레이어"></div>
+      <p class="music-note">공식 Spotify 플레이어 · 클릭해야 로드돼요. 재생은 Spotify 이용 환경에 따라 달라질 수 있어요.</p>
+    </div>
+    <div class="music-art reveal" aria-hidden="true">
+      <div class="music-circle"></div>
+      <span class="music-watermark serif">SOUND</span>
+      <img class="music-headphone" src="assets/headphones.webp" loading="lazy" alt="">
+      <img class="music-glass music-glass-a" src="assets/orb.webp" loading="lazy" alt="">
+      <img class="music-glass music-glass-b" src="assets/sparkle.webp" loading="lazy" alt="">
+      <div class="music-art-label mono">TRACK 001 <span> / </span> FAVORITES</div>
+    </div>
+  </div>
+</section>
+</main><footer><div class="footer-top"><div class="footer-name serif">Other Tab<span style="color:#bc7482">.</span></div><a class="mono" href="#top" data-umami-event="back_to_top">BACK TO TOP ↑</a></div><div class="footer-micro"><span>A LITTLE CORNER OF THE INTERNET.</span><span>PERSONAL INDEX / 2026 · ANONYMOUS VISIT STATS</span></div></footer>
 <script>
 (()=>{const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;const $=s=>document.querySelector(s);const hero=$('#heroVisual'),holder=$('#bottleHolder');let px=0,py=0,dx=0,dy=0,down=false,startX=0,startY=0;
 // Create drifting blossom and petal layers from the existing AI-generated transparent assets.
@@ -236,6 +300,21 @@ const obs=new IntersectionObserver(entries=>entries.forEach(x=>{if(x.isIntersect
 document.querySelectorAll('.fact').forEach(btn=>btn.addEventListener('click',()=>{let open=btn.classList.toggle('is-open');btn.setAttribute('aria-expanded',String(open));btn.querySelector('.fact-corner').textContent=open?'−':'+';if(open&&window.umami?.track){window.umami.track('tmi_open',{topic:btn.querySelector('.fact-no')?.textContent.trim()||'random'})}}));
 const menu=$('#menuToggle'),panel=$('#mobilePanel');menu.addEventListener('click',()=>{const on=panel.classList.toggle('show');menu.setAttribute('aria-expanded',String(on));menu.setAttribute('aria-label',on?'메뉴 닫기':'메뉴 열기')});panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{panel.classList.remove('show');menu.setAttribute('aria-expanded','false')}));
 if(!reduce){let pending=false;addEventListener('scroll',()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{const s=Math.min(scrollY/(innerHeight||800),1.6);hero.style.transform=`translate3d(0, ${Math.min(s*12,16)}px, 0)`;hero.style.setProperty('--jarPosY',((py||0)*.22+s*38)+'px');hero.style.setProperty('--petal-wind',(Math.sin(scrollY*.009)*16).toFixed(1)+'px');pending=false})},{passive:true})}
+// Load licensed Spotify embed only upon user request (no auto-play, no passive third-party player load).
+const musicLoad=$('#musicLoad'),spotifyWrap=$('#spotifyEmbedWrap');
+if(musicLoad&&spotifyWrap){musicLoad.addEventListener('click',()=>{
+ if(spotifyWrap.hasChildNodes()){spotifyWrap.hidden=!spotifyWrap.hidden;musicLoad.setAttribute('aria-expanded',String(!spotifyWrap.hidden));musicLoad.querySelector('span').textContent=spotifyWrap.hidden?'LISTEN HERE':'HIDE PLAYER';return;}
+ const frame=document.createElement('iframe');
+ frame.src='https://open.spotify.com/embed/track/6zIfdCmmhPCX0cMquBsC37?utm_source=generator';
+ frame.title='Eurythmics — Sweet Dreams (Are Made of This), Spotify Player';
+ frame.loading='lazy'; frame.referrerPolicy='strict-origin-when-cross-origin';
+ frame.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+ frame.setAttribute('allowfullscreen','');
+ spotifyWrap.appendChild(frame);spotifyWrap.hidden=false;
+ musicLoad.setAttribute('aria-expanded','true');musicLoad.querySelector('span').textContent='HIDE PLAYER';
+ if(window.umami?.track)window.umami.track('music_player_open',{track:'eurythmics_sweet_dreams'});
+ });}
+
 })();
 </script>
 </body></html>
